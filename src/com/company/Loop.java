@@ -184,7 +184,9 @@ public class Loop {
             s = reader.readLine();
             while (s != null) {
                 String[] arr = s.trim().split(" ");
-                wordCount += arr.length;
+                for(int i = 0; i < arr.length; i++) {
+                    if(arr[i].length() > 1) wordCount++;
+                }
                 s = reader.readLine();
             }
         reader.close();
