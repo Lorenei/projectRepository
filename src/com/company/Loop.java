@@ -256,7 +256,7 @@ public class Loop {
         reader.close();
         String text = builder.toString();
 
-        String[] sentences = text.trim().split("\\.");
+        String[] sentences = text.trim().split("[\\.?]+");
         numberOfSentences = sentences.length;
 
         System.out.println("Liczba zdań w dokumencie: " + numberOfSentences);
