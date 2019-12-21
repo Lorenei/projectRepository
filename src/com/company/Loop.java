@@ -103,7 +103,8 @@ public class Loop {
         }
         StringBuilder builder = new StringBuilder();
         String currentLine = "";
-        int numberOfLetters = 0;
+        int numberOfVowels = 0;
+        int numberOfConsonants = 0;
         try {
             currentLine = reader.readLine();
             while (currentLine != null) {
@@ -115,16 +116,21 @@ public class Loop {
 
 
             for (int i = 0; i < text.length(); i++) {
-                if ("abcdefghijklmnopqrstuvwxyz".contains(Character.toString(text.charAt(i)))) {
-                    numberOfLetters++;
+                if("aeiouy".contains(Character.toString(text.charAt(i)))) {
+                    numberOfVowels++;
                 }
+                else if("bcdfghjklmnpqrstvwxz".contains(Character.toString(text.charAt(i)))) {
+                    numberOfConsonants++;
+                }
+
             }
 
-            System.out.println("Liczba liter w dokumencie: " + numberOfLetters);
+            System.out.println("Liczba samogłosek w dokumencie: " + numberOfVowels);
+            System.out.println("Liczba spółgłosek w dokumencie: " + numberOfConsonants);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "Liczba liter w dokumencie: " + numberOfLetters;
+        return "Liczba samogłosek w dokumencie: " + numberOfVowels + " Liczba spółgłosek w dokumencie: " + numberOfConsonants;
     }
 
     private void generateReport() {
